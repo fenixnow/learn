@@ -15,10 +15,9 @@ import java.util.Optional;
 public class UserService {
 
     private final UserRepository userRepository;
-    private final UserMapper userMapper;
 
     public UserDto login(CredentialDto credentialDto) {
         Optional<UserEntity> userEntity = userRepository.findByLogin(credentialDto.login());
-        return userMapper.toUserDto(userEntity);
+        return UserMapper.MAPPER.toUserDto(userEntity);
     }
 }
