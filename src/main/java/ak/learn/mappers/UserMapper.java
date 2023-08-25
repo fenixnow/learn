@@ -3,14 +3,12 @@ package ak.learn.mappers;
 import ak.learn.Entities.UserEntity;
 import ak.learn.dtos.UserDto;
 import org.mapstruct.Mapper;
-import org.mapstruct.MappingConstants;
-import org.springframework.stereotype.Component;
+import org.mapstruct.factory.Mappers;
 
 import java.util.Optional;
 
-@Component
-@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
+@Mapper
 public interface UserMapper {
-
+    UserMapper MAPPER = Mappers.getMapper(UserMapper.class);
     UserDto toUserDto(Optional<UserEntity> userEntity);
 }
